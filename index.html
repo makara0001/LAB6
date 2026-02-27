@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Lab 6</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 350px; }
+        h1 { color: #1a1a1a; margin-bottom: 25px; font-size: 24px; text-align: center; }
+        .input-group { margin-bottom: 20px; text-align: left; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #444; }
+        input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; transition: border 0.3s; }
+        input:focus { border-color: #5a00ff; outline: none; }
+        .login-btn { width: 100%; padding: 12px; background: #5a00ff; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; transition: background 0.3s; }
+        .login-btn:hover { background: #4500cc; }
+        .hint { font-size: 12px; color: #888; margin-top: 15px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <h1>Welcome Back</h1>
+        <div class="input-group">
+            <label>Username</label>
+            <input type="text" id="username" placeholder="Enter your username">
+        </div>
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Enter your password">
+        </div>
+        <button class="login-btn" onclick="handleLogin()">Login</button>
+        <p class="hint">No password validation required for this lab.</p>
+    </div>
+
+    <script>
+        function handleLogin() {
+            const username = document.getElementById("username").value;
+            if (username) {
+                document.cookie = "username=" + username + "; path=/";
+                window.location.href = "register.html";
+            } else {
+                alert("Please enter a username");
+            }
+        }
+    </script>
+</body>
+</html>
